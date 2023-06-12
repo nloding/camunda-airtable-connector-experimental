@@ -1,0 +1,227 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "Airtable Connector - Create Multiple Records",
+  "id": "3f367508-2a1f-42f9-bfb2-1d18b913ca88",
+  "description": "Create multiple records in Airtable",
+  "icon": {
+    "contents": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBVcGxvYWRlZCB0bzogU1ZHIFJlcG8sIHd3dy5zdmdyZXBvLmNvbSwgR2VuZXJhdG9yOiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgLTIwLjUgMjU2IDI1NiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+Cgk8Zz4KCQk8cGF0aCBkPSJNMTE0LjI1ODczLDIuNzAxMDE2OTUgTDE4Ljg2MDQwMjMsNDIuMTc1NjM4NCBDMTMuNTU1MjcyMyw0NC4zNzExNjM4IDEzLjYxMDIzMjgsNTEuOTA2NTMxMSAxOC45NDg2MjgyLDU0LjAyMjUwODUgTDExNC43NDYxNDIsOTIuMDExNzUxNCBDMTIzLjE2Mzc2OSw5NS4zNDk4NzU3IDEzMi41Mzc0MTksOTUuMzQ5ODc1NyAxNDAuOTUzNiw5Mi4wMTE3NTE0IEwyMzYuNzUyNTYsNTQuMDIyNTA4NSBDMjQyLjA4OTUxLDUxLjkwNjUzMTEgMjQyLjE0NTkxNiw0NC4zNzExNjM4IDIzNi44MzkzNCw0Mi4xNzU2Mzg0IEwxNDEuNDQyNDU5LDIuNzAxMDE2OTUgQzEzMi43Mzg0NTksLTAuOTAwMzM4OTgzIDEyMi45NjEyODQsLTAuOTAwMzM4OTgzIDExNC4yNTg3MywyLjcwMTAxNjk1IiBmaWxsPSIjRkZCRjAwIj4KDTwvcGF0aD4KCQk8cGF0aCBkPSJNMTM2LjM0OTA3MSwxMTIuNzU2ODYzIEwxMzYuMzQ5MDcxLDIwNy42NTkxMDEgQzEzNi4zNDkwNzEsMjEyLjE3MzA4OSAxNDAuOTAwNjY0LDIxNS4yNjM4OTIgMTQ1LjA5NjQ2MSwyMTMuNjAwNjE1IEwyNTEuODQ0MTIyLDE3Mi4xNjYyMTkgQzI1NC4yODExODQsMTcxLjIwMDA3MiAyNTUuODc5Mzc2LDE2OC44NDU0NTEgMjU1Ljg3OTM3NiwxNjYuMjI0NzA1IEwyNTUuODc5Mzc2LDcxLjMyMjQ2NzggQzI1NS44NzkzNzYsNjYuODA4NDc5MSAyNTEuMzI3NzgzLDYzLjcxNzY3NjggMjQ3LjEzMTk4Niw2NS4zODA5NTM3IEwxNDAuMzg0MzI1LDEwNi44MTUzNDkgQzEzNy45NDg3MSwxMDcuNzgxNDk2IDEzNi4zNDkwNzEsMTEwLjEzNjExOCAxMzYuMzQ5MDcxLDExMi43NTY4NjMiIGZpbGw9IiMyNkI1RjgiPgoNPC9wYXRoPgoJCTxwYXRoIGQ9Ik0xMTEuNDIyNzcxLDExNy42NTM1NSBMNzkuNzQyNDA5LDEzMi45NDk5MTIgTDc2LjUyNTc3NjMsMTM0LjUwNDcxNCBMOS42NTA0NzY4NCwxNjYuNTQ4MTA0IEM1LjQxMTI5MDQsMTY4LjU5MzIxMSAwLjAwMDU3ODUzMTA3MywxNjUuNTAzODU1IDAuMDAwNTc4NTMxMDczLDE2MC43OTQ2MTIgTDAuMDAwNTc4NTMxMDczLDcxLjcyMTA3NTcgQzAuMDAwNTc4NTMxMDczLDcwLjAxNzMwMTcgMC44NzQxNjA0NTIsNjguNTQ2Mzg2NCAyLjA0NTY4NTg4LDY3LjQzODQ5OTQgQzIuNTM0NTQ0NjMsNjYuOTQ4MTk0NCAzLjA4ODQ4ODE0LDY2LjU0NDY2ODkgMy42NjQxMjY1NSw2Ni4yMjUwMzA1IEM1LjI2MjMxODY0LDY1LjI2NjExNTMgNy41NDE3MzEwNyw2NS4wMTAxMTUzIDkuNDc5ODEwMTcsNjUuNzc2NjY4OSBMMTEwLjg5MDUyMiwxMDUuOTU3MDk4IEMxMTYuMDQ1MjM0LDEwOC4wMDIyMDYgMTE2LjQ1MDIwNiwxMTUuMjI1MTY2IDExMS40MjI3NzEsMTE3LjY1MzU1IiBmaWxsPSIjRUQzMDQ5Ij4KDTwvcGF0aD4KCQk8cGF0aCBkPSJNMTExLjQyMjc3MSwxMTcuNjUzNTUgTDc5Ljc0MjQwOSwxMzIuOTQ5OTEyIEwyLjA0NTY4NTg4LDY3LjQzODQ5OTQgQzIuNTM0NTQ0NjMsNjYuOTQ4MTk0NCAzLjA4ODQ4ODE0LDY2LjU0NDY2ODkgMy42NjQxMjY1NSw2Ni4yMjUwMzA1IEM1LjI2MjMxODY0LDY1LjI2NjExNTMgNy41NDE3MzEwNyw2NS4wMTAxMTUzIDkuNDc5ODEwMTcsNjUuNzc2NjY4OSBMMTEwLjg5MDUyMiwxMDUuOTU3MDk4IEMxMTYuMDQ1MjM0LDEwOC4wMDIyMDYgMTE2LjQ1MDIwNiwxMTUuMjI1MTY2IDExMS40MjI3NzEsMTE3LjY1MzU1IiBmaWxsLW9wYWNpdHk9IjAuMjUiIGZpbGw9IiMwMDAwMDAiPgoNPC9wYXRoPgoJPC9nPgo8L3N2Zz4="
+  },
+  "documentationRef": "https://docs.camunda.io/docs/components/connectors/out-of-the-box-connectors/rest/",
+  "category": {
+    "id": "connectors",
+    "name": "Connectors"
+  },
+  "appliesTo": [
+    "bpmn:Task"
+  ],
+  "elementType": {
+    "value": "bpmn:ServiceTask"
+  },
+  "groups": [
+    {
+      "id": "authentication",
+      "label": "Authentication"
+    },
+    {
+      "id": "endpoint",
+      "label": "Airtable Endpoint"
+    },
+    {
+      "id": "input",
+      "label": "Payload"
+    },
+    {
+      "id": "timeout",
+      "label": "Connect Timeout"
+    },
+    {
+      "id": "output",
+      "label": "Response Mapping"
+    },
+    {
+      "id": "errors",
+      "label": "Error Handling"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Hidden",
+      "value": "io.camunda:http-json:1",
+      "binding": {
+        "type": "zeebe:taskDefinition:type"
+      }
+    },
+    {
+      "label": "Type",
+      "id": "authenticationType",
+      "group": "authentication",
+      "description": "Choose the authentication type. Select 'None' if no authentication is necessary",
+      "value": "bearer",
+      "type": "Hidden",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      }
+    },
+    {
+      "label": "Personal Access Token",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "constraints": {
+        "notEmpty": true
+      },
+      "condition": {
+        "property": "authenticationType",
+        "equals": "bearer"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "post",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "endpoint",
+      "type": "Hidden",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "value": "=\"https://api.airtable.com/v0/\"+baseId+\"/\"+tableId"
+    },
+    {
+      "id": "entity",
+      "label": "Entity",
+      "group": "endpoint",
+      "type": "Hidden",
+      "value": "records",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "entity"
+      }
+    },
+    {
+      "id": "recordsEndpoints",
+      "label": "Endpoint",
+      "group": "endpoint",
+      "type": "Hidden",
+      "value": "createMultipleRecords",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "endpointType"
+      },
+      "condition": {
+        "property": "entity",
+        "equals": "records"
+      }
+    },
+    {
+      "label": "Connection Timeout",
+      "description": "Sets the timeout in seconds to establish a connection or 0 for an infinite timeout",
+      "group": "timeout",
+      "type": "String",
+      "value": "20",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "connectionTimeoutInSeconds"
+      },
+      "optional": true,
+      "feel": "optional",
+      "constraints": {
+        "notEmpty": false,
+        "pattern": {
+          "value": "^(=.+|[0-9]+|secrets\\..+)$",
+          "message": "Must be a timeout in seconds (default value is 20 seconds) or a FEEL expression"
+        }
+      }
+    },
+    {
+      "id": "baseId",
+      "label": "Base ID",
+      "description": "The ID of the base the table is in",
+      "group": "input",
+      "feel": "optional",
+      "type": "String",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "baseId"
+      }
+    },
+    {
+      "id": "tableId",
+      "label": "Table ID",
+      "description": "The ID of the table to insert records into",
+      "group": "input",
+      "feel": "optional",
+      "type": "String",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "tableId"
+      }
+    },
+    {
+      "id": "records",
+      "label": "Records",
+      "description": "List of records to insert",
+      "group": "input",
+      "feel": "optional",
+      "type": "String",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "records"
+      }
+    },
+    {
+      "label": "Request Body",
+      "description": "Payload to send with the request",
+      "group": "input",
+      "type": "Hidden",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "value": "={ \"data\": {\"records\": records} }"
+    },
+    {
+      "label": "Result Variable",
+      "description": "Name of variable to store the response in. Details in the <a href=\"https://docs.camunda.io/docs/components/connectors/use-connectors/#result-variable\" target=\"_blank\">documentation</a>",
+      "group": "output",
+      "type": "String",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultVariable"
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables. Details in the <a href=\"https://docs.camunda.io/docs/components/connectors/use-connectors/#result-expression\" target=\"_blank\">documentation</a>",
+      "group": "output",
+      "type": "Text",
+      "feel": "required",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      }
+    },
+    {
+      "label": "Error Expression",
+      "description": "Expression to handle errors. Details in the <a href=\"https://docs.camunda.io/docs/components/connectors/use-connectors/#bpmn-errors\" target=\"_blank\">documentation</a>",
+      "group": "errors",
+      "type": "Text",
+      "feel": "required",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "errorExpression"
+      }
+    }
+  ]
+}
